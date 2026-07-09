@@ -1,26 +1,22 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import PlatformIdentity from './components/PlatformIdentity'
+import Intro from './components/Intro'
 import Sectors from './components/Sectors'
+import Platform from './components/Platform'
 import Products from './components/Products'
-import Architecture from './components/Architecture'
-
 import CTA from './components/CTA'
 import Footer from './components/Footer'
-import CustomCursor from './components/CustomCursor'
 
 export default function App() {
   return (
-    <div className="bg-black min-h-screen">
-      <CustomCursor />
+    <div className="min-h-screen" style={{ background: '#F4F2EA' }}>
       <Navbar />
       <main>
         <Hero />
-        <PlatformIdentity />
+        <Intro />
         <Sectors />
+        <Platform />
         <Products />
-        <Architecture />
-
         <CTA />
       </main>
       <Footer />

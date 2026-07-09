@@ -7,34 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        'electric-blue': '#00C2FF',
-        'deep-violet': '#7B2FFF',
-        'surface': '#111111',
-        'surface-light': '#161616',
-        'border-subtle': 'rgba(255,255,255,0.08)',
+        paper: '#F4F2EA',
+        'paper-alt': '#EFEDE3',
+        ink: '#14130F',
+        'ink-soft': '#2B2A24',
+        muted: '#6B6A60',
+        accent: '#6F8B2A',
+        line: 'rgba(20,19,15,0.14)',
       },
       fontFamily: {
-        'space': ['"Space Grotesk"', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
-        'mono': ['"JetBrains Mono"', '"IBM Plex Mono"', 'monospace'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'ticker': 'ticker 30s linear infinite',
-        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
-      },
-      keyframes: {
-        ticker: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'glow-pulse': {
-          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-          '50%': { opacity: '1', transform: 'scale(1.05)' },
-        },
+      maxWidth: {
+        editorial: '1240px',
       },
     },
   },

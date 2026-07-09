@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,397 +14,183 @@
 }
 
 :root {
-  --bg: #000000;
-  --bg-alt: #0a0a0a;
-  --surface: #111111;
-  --surface-light: #161616;
-  --electric-blue: #00C2FF;
-  --deep-violet: #7B2FFF;
-  --text-primary: #FFFFFF;
-  --text-secondary: #8A8A8A;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(0, 194, 255, 0.3);
+  --paper: #F4F2EA;
+  --paper-alt: #EFEDE3;
+  --ink: #14130F;
+  --ink-soft: #2B2A24;
+  --muted: #6B6A60;
+  --accent: #6F8B2A;
+  --line: rgba(20, 19, 15, 0.14);
+  --line-soft: rgba(20, 19, 15, 0.08);
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--paper);
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* ================================
-   CUSTOM CURSOR
-================================ */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background: #00C2FF;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  mix-blend-mode: screen;
-}
-
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(0, 194, 255, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
-}
-
-.cursor-dot.expanded {
-  width: 12px;
-  height: 12px;
-}
-
-.cursor-ring.expanded {
-  width: 48px;
-  height: 48px;
-  border-color: rgba(0, 194, 255, 0.8);
-}
-
-/* ================================
-   CUSTOM SCROLLBAR
-================================ */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 194, 255, 0.3);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 194, 255, 0.6);
-}
-
-/* ================================
-   SELECTION
-================================ */
-::selection {
-  background: rgba(0, 194, 255, 0.2);
-  color: #FFFFFF;
 }
 
 /* ================================
    TYPOGRAPHY
 ================================ */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+.font-serif {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
 }
 
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ================================
-   GLASSMORPHISM
-================================ */
-.glass {
-  background: rgba(17, 17, 17, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Editorial display heading — high-contrast serif */
+.display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  color: var(--ink);
 }
 
-.glass-card {
-  background: rgba(22, 22, 22, 0.8);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.3s ease;
+/* Large serif body / lede paragraph */
+.lede {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
-.glass-card:hover {
-  border-color: rgba(0, 194, 255, 0.25);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 194, 255, 0.05);
-}
-
-/* ================================
-   GRID OVERLAY
-================================ */
-.grid-overlay {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-.dot-overlay {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* Section number / eyebrow label */
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* ================================
-   GLOW EFFECTS
+   SELECTION
 ================================ */
-.glow-blue {
-  box-shadow: 0 0 20px rgba(0, 194, 255, 0.15), 0 0 60px rgba(0, 194, 255, 0.05);
-}
-
-.glow-violet {
-  box-shadow: 0 0 20px rgba(123, 47, 255, 0.15), 0 0 60px rgba(123, 47, 255, 0.05);
-}
-
-.text-glow {
-  text-shadow: 0 0 30px rgba(0, 194, 255, 0.5);
+::selection {
+  background: rgba(111, 139, 42, 0.22);
+  color: var(--ink);
 }
 
 /* ================================
-   GRADIENT BORDERS
+   CUSTOM SCROLLBAR
 ================================ */
-.gradient-border {
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 19, 15, 0.22);
+  border: 3px solid var(--paper);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 19, 15, 0.4);
+}
+
+/* ================================
+   HAIRLINE DIVIDERS
+================================ */
+.hairline {
+  border-top: 1px solid var(--line);
+}
+
+/* ================================
+   ARROW LINK (Cytoscan-style)
+================================ */
+.arrow-link {
   position: relative;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 194, 255, 0.4), rgba(123, 47, 255, 0.4));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* ================================
-   TICKER
-================================ */
-.ticker-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.ticker-content {
-  display: inline-block;
-  animation: ticker 35s linear infinite;
-}
-
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ================================
-   BUTTON STYLES
-================================ */
-.btn-primary {
-  background: #00C2FF;
-  color: #000;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
-  letter-spacing: 0.02em;
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
+  transition: color 0.25s ease;
 }
 
-.btn-primary::after {
+.arrow-link::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.15) 100%);
-  opacity: 0;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
   transition: opacity 0.25s ease;
+  opacity: 0.35;
 }
 
-.btn-primary:hover {
-  background: #22d0ff;
-  box-shadow: 0 0 30px rgba(0, 194, 255, 0.4);
+.arrow-link:hover {
+  color: var(--accent);
 }
 
-.btn-primary:hover::after {
+.arrow-link:hover::after {
   opacity: 1;
 }
 
-.btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(0, 194, 255, 0.4);
-  color: #00C2FF;
-  font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.02em;
-  transition: all 0.25s ease;
-}
-
-.btn-ghost:hover {
-  background: rgba(0, 194, 255, 0.08);
-  border-color: rgba(0, 194, 255, 0.7);
-  box-shadow: 0 0 20px rgba(0, 194, 255, 0.1);
+/* ================================
+   ACCENT DOT
+================================ */
+.accent-dot {
+  display: inline-block;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 /* ================================
-   ACCENT LINES
+   MEASURED CONTAINER
 ================================ */
-.accent-line-blue {
-  border-left: 2px solid #00C2FF;
-  box-shadow: -4px 0 16px rgba(0, 194, 255, 0.2);
+.container-editorial {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-.accent-line-violet {
-  border-left: 2px solid #7B2FFF;
-  box-shadow: -4px 0 16px rgba(123, 47, 255, 0.2);
-}
-
-.accent-line-cyan {
-  border-left: 2px solid #00D4FF;
-  box-shadow: -4px 0 12px rgba(0, 212, 255, 0.2);
-}
-
-.accent-line-amber {
-  border-left: 2px solid #F59E0B;
-  box-shadow: -4px 0 12px rgba(245, 158, 11, 0.2);
-}
-
-.accent-line-green {
-  border-left: 2px solid #10B981;
-  box-shadow: -4px 0 12px rgba(16, 185, 129, 0.2);
-}
-
-/* ================================
-   SECTOR CARD HOVERS
-================================ */
-.sector-card-medical:hover {
-  border-color: rgba(0, 212, 255, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.08) !important;
-}
-
-.sector-card-retail:hover {
-  border-color: rgba(245, 158, 11, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.08) !important;
-}
-
-.sector-card-employment:hover {
-  border-color: rgba(123, 47, 255, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(123, 47, 255, 0.08) !important;
-}
-
-.sector-card-shipping:hover {
-  border-color: rgba(16, 185, 129, 0.4) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(16, 185, 129, 0.08) !important;
-}
-
-/* ================================
-   ANIMATED RADIAL GLOW
-================================ */
-.radial-glow {
-  background: radial-gradient(ellipse at center, rgba(0, 194, 255, 0.08) 0%, transparent 70%);
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-}
-
-/* ================================
-   NODE PULSE ANIMATION
-================================ */
-@keyframes node-pulse {
-  0%, 100% { r: 4; opacity: 0.8; }
-  50% { r: 6; opacity: 1; }
-}
-
-@keyframes dash-flow {
-  to { stroke-dashoffset: -20; }
-}
-
-.node-pulse {
-  animation: node-pulse 3s ease-in-out infinite;
-}
-
-.dash-flow {
-  animation: dash-flow 2s linear infinite;
-}
-
-/* ================================
-   MOBILE NAV
-================================ */
-.mobile-nav-overlay {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+@media (min-width: 1024px) {
+  .container-editorial {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 /* ================================
    SECTION SPACING
 ================================ */
-.section-padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
-@media (max-width: 768px) {
-  .section-padding {
-    padding-top: 64px;
-    padding-bottom: 64px;
+@media (min-width: 768px) {
+  .section-pad {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
-}
-
-/* ================================
-   EYEBROW TAG
-================================ */
-.eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #00C2FF;
-}
-
-/* ================================
-   COUNTER ANIMATION
-================================ */
-.counter-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-}
-
-/* ================================
-   ARCHITECTURE DIAGRAM
-================================ */
-.arch-line {
-  stroke-dasharray: 6 4;
-  animation: dash-flow 2.5s linear infinite;
-}
-
-.arch-node {
-  transition: all 0.3s ease;
-}
-
-.arch-node:hover circle {
-  fill: rgba(0, 194, 255, 0.15);
-  stroke: rgba(0, 194, 255, 0.8);
 }
